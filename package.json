@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "type": "commonjs",
+  "type": "module",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/DmitriLyalin/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DmitriLyalin/frontend-project-44/actions)",
   "homepage": "https://github.com/DmitriLyalin/frontend-project-44#readme",
