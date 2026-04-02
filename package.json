@@ -1,24 +1,26 @@
 {
   "name": "@hexlet/code",
-  "type": "module",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/DmitriLyalin/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DmitriLyalin/frontend-project-44/actions)",
   "homepage": "https://github.com/DmitriLyalin/frontend-project-44#readme",
   "bugs": {
     "url": "https://github.com/DmitriLyalin/frontend-project-44/issues"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/DmitriLyalin/frontend-project-44.git"
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
- "bin":{
-	"brain-games": "bin/brain-games.js"}
-
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
