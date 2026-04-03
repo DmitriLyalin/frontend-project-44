@@ -1,4 +1,5 @@
-import readlineSync from 'readline-sync';
+#!/usr/bin/env node
+import readlineSync from 'readline-sync'
 import {greetUser,userName} from '../src/cli.js'
 
 console.log('Welcome to the Brain Games')
