@@ -36,18 +36,18 @@ console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}. 
 return false
 }
 }
-
-
-
 for (let winCount = 0; winCount < gameRounds; winCount += 1) {
 result = getRandomNumber()
 console.log ('Question: ' + result)
 let answer = readlineSync.question('Your answer: ')
 isEven(result)
 let checkedAnswer = checkAnswer(answer)
+if (winCount === gameRounds-1) {
+console.log('Congratulations, ' + userName)
+}
 if (checkedAnswer === false) {
 break}
 
 }
-console.log('Congratulations, ' + userName)
+
 
