@@ -4,3 +4,5 @@ brain-games: #execute file brain-games.js
 	./bin/brain-games.js
 publish: 
 	npm publish --dry-run
+lint: # check linting and find problems
+	npx eslint .
