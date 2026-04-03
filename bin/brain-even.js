@@ -1,5 +1,8 @@
 import readlineSync from 'readline-sync';
+import {greetUser,userName} from '../src/cli.js'
 
+console.log('Welcome to the Brain Games')
+greetUser()
 console.log('Answer "yes" if the number is even, otherwise answer "no".')
 
 
@@ -28,7 +31,7 @@ if  (answer === correctAnswer){
 console.log('Correct!')
 }
 else {
-console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.  "Let's try again, Bill!`)
+console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.  "Let's try again, ${userName}!`)
 return false
 }
 }
@@ -43,7 +46,7 @@ isEven(result)
 let checkedAnswer = checkAnswer(answer)
 if (checkedAnswer === false) {
 break}
-console.log('Congratulations,')
-}
 
+}
+console.log('Congratulations, ' + userName)
 
