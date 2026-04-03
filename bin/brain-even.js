@@ -6,7 +6,7 @@ greetUser()
 console.log('Answer "yes" if the number is even, otherwise answer "no".')
 
 
-let result = 0;
+let result;
 const range = 100
 const gameRounds = 3
 let correctAnswer =''
