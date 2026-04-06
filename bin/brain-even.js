@@ -1,53 +1,51 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync'
-import {greetUser,userName} from '../src/cli.js'
-
-console.log('Welcome to the Brain Games')
-greetUser()
-console.log('Answer "yes" if the number is even, otherwise answer "no".')
+import {greetUser} from '../src/cli.js'
 
 
-let result;
-const range = 100
-const gameRounds = 3
-let correctAnswer =''
-
-const getRandomNumber = () => {
+const getRandomNumber = (range) => {
 let randomNumber =  Math.floor(Math.random() * range)
 return randomNumber
 }
-const isEven = (randomNumber) => {
-if (randomNumber % 2 === 0) {
-correctAnswer = 'yes'
-return  correctAnswer
-}
-else {
-correctAnswer = 'no'
-return  correctAnswer
-}
+
+
+const getUserAnswer = () => {
+const userAnswer = readlineSync.question('Your answer: ')
+return userAnswer
 }
 
-const  checkAnswer = (answer) => {
-if  (answer === correctAnswer){
+const isEven = (randomNumber) => {
+ return randomNumber % 2 === 0 ? 'yes' : 'no'
+}
+
+
+const  checkAnswer = (answer, correctAnswer) => {
+ return answer === correctAnswer
+}
+
+const range = 100
+const gameRounds = 3
+
+const app = () => {
+const userName = greetUser()
+for (let round = 0; round < gameRounds; round += 1) {
+
+const questionNumber = getRandomNumber(range)
+console.log ('Question: ' + questionNumber)
+const  correctAnswer  =  isEven(questionNumber)
+const userAnswer = getUserAnswer()
+
+const checkedAnswer = checkAnswer(userAnswer,correctAnswer)
+if (checkedAnswer) {
 console.log('Correct!')
 }
+
 else {
-console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.  "Let's try again, ${userName}!`)
-return false
+console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`);
+return
 }
 }
-for (let winCount = 0; winCount < gameRounds; winCount += 1) {
-result = getRandomNumber()
-console.log ('Question: ' + result)
-let answer = readlineSync.question('Your answer: ')
-isEven(result)
-let checkedAnswer = checkAnswer(answer)
-if (winCount === gameRounds-1) {
-console.log('Congratulations, ' + userName)
-}
-if (checkedAnswer === false) {
-break}
+console.log(`Congratulations, ${userName}!`)
 
 }
-
-
+app()
