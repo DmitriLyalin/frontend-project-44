@@ -21,7 +21,7 @@ const numberOne = getRandomNumber(range)
 const numberTwo = getRandomNumber(range)
 const sign = getRandomOperator(operators)
 
-let array =[]
+
 let expression
 let result
 switch (sign){
@@ -36,7 +36,7 @@ case '*':
 break
 }
  expression = `${numberOne} ${sign} ${numberTwo}`
- return  array=[expression, result]
+ return  [expression, result]
 }
 
 
