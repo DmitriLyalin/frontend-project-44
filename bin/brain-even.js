@@ -1,26 +1,14 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync'
 import {greetUser} from '../src/cli.js'
-
+import {askQuestion, getUserAnswer, checkAnswer} from '../src/index.js'
 
 const getRandomNumber = (range) => {
 let randomNumber =  Math.floor(Math.random() * range)
 return randomNumber
 }
 
-
-const getUserAnswer = () => {
-const userAnswer = readlineSync.question('Your answer: ')
-return userAnswer
-}
-
 const isEven = (randomNumber) => {
  return randomNumber % 2 === 0 ? 'yes' : 'no'
-}
-
-
-const  checkAnswer = (answer, correctAnswer) => {
- return answer === correctAnswer
 }
 
 const range = 100
@@ -31,7 +19,7 @@ const userName = greetUser()
 for (let round = 0; round < gameRounds; round += 1) {
 
 const questionNumber = getRandomNumber(range)
-console.log ('Question: ' + questionNumber)
+askQuestion(questionNumber)
 const  correctAnswer  =  isEven(questionNumber)
 const userAnswer = getUserAnswer()
 
