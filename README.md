@@ -3,3 +3,5 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DmitriLyalin_frontend-project-44&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DmitriLyalin_frontend-project-44)
 #Link to asciinema.org with a demo recording
 https://asciinema.org/a/JtxiNCYR7GKnjeB0
+#demonstrating brain-calculator game
+[![asciicast](https://asciinema.org/a/ZPiSS4RN0kuTcGgX.svg)](https://asciinema.org/a/ZPiSS4RN0kuTcGgX)
