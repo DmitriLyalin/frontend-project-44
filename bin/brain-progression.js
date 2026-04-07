@@ -37,6 +37,7 @@ const transformArray = (array, index) => {
 };
 const app = () => {
   const userName = greetUser();
+  console.log('What number is missing in the progression?')
   for (let round = 0; round < gameRounds; round += 1) {
     const arithmeticArray = getArithmeticSequence(minLength, maxLength);
     const index = getRandomNumber(0, arithmeticArray.length);
