@@ -7,6 +7,8 @@ brain-even: #execute file brain-even.js
 
 brain-calc: #execute file brain-calc.js
 	./bin/brain-calc.js
+brain-gcd: #execute file brain-gcd.js
+	./bin/brain-gcd.js
 publish: 
 	npm publish --dry-run
 lint: # check linting and find problems
