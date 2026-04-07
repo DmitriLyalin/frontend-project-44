@@ -13,3 +13,5 @@ demonstrating brain-greatest-common-divider game
 
 Demonstrating brain-rpogression game
 [![asciicast](https://asciinema.org/a/q6IInQgUD7SDycL3.svg)](https://asciinema.org/a/q6IInQgUD7SDycL3)
+Demonstrating brain-prime game
+[![asciicast](https://asciinema.org/a/93AcBWd61IVnntFx.svg)](https://asciinema.org/a/93AcBWd61IVnntFx)
