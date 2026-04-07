@@ -1,11 +1,6 @@
 #!/usr/bin/env node
 import {greetUser} from '../src/cli.js'
-import {askQuestion, getUserAnswer, checkAnswer} from '../src/index.js'
-
-const getRandomNumber = (range) => {
-let randomNumber =  Math.floor(Math.random() * range)
-return randomNumber
-}
+import {gameRounds, askQuestion, getUserAnswer, checkAnswer, getRandomNumber} from '../src/index.js
 
 const getRandomOperator = (operators) => {
 const operator =operators[Math.floor(Math.random() * operators.length)]
@@ -38,9 +33,6 @@ break
  expression = `${numberOne} ${sign} ${numberTwo}`
  return  [expression, result]
 }
-
-
-const gameRounds = 3
 
 const app = () => {
 const userName = greetUser()
