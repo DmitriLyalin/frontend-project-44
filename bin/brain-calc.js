@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {greetUser} from '../src/cli.js'
-import {gameRounds, askQuestion, getUserAnswer, checkAnswer, getRandomNumber} from '../src/index.js
+import {gameRounds, askQuestion, getUserAnswer, checkAnswer, getRandomNumber} from '../src/index.js'
 
 const getRandomOperator = (operators) => {
 const operator =operators[Math.floor(Math.random() * operators.length)]
@@ -40,7 +40,7 @@ for (let round = 0; round < gameRounds; round += 1) {
 
 const [questionExpression,questionNumber]  = composeExpression()
 askQuestion(questionExpression)
-const  correctAnswer  =(questionNumber).toString() 
+const  correctAnswer  =(questionNumber).toString()
 const userAnswer = getUserAnswer()
 const checkedAnswer = checkAnswer(userAnswer,correctAnswer)
 if (checkedAnswer) {
