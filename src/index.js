@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync'
 
+const gameRounds = 3
+
 const askQuestion = (question) => {
 console.log('Question: ' + question)
 return question
@@ -14,4 +16,10 @@ return userAnswer
 const  checkAnswer = (answer, correctAnswer) => {
  return answer === correctAnswer
 }
-export {askQuestion, getUserAnswer, checkAnswer}
+
+const getRandomNumber = (range) => {
+let randomNumber =  Math.floor(Math.random() * range)
+return randomNumber
+}
+
+export {gameRounds, askQuestion, getUserAnswer, checkAnswer, getRandomNumber}
