@@ -37,7 +37,7 @@ const transformArray = (array, index) => {
 };
 const app = () => {
   const userName = greetUser();
-  console.log('What number is missing in the progression?')
+  console.log("What number is missing in the progression?");
   for (let round = 0; round < gameRounds; round += 1) {
     const arithmeticArray = getArithmeticSequence(minLength, maxLength);
     const index = getRandomNumber(0, arithmeticArray.length);
@@ -50,7 +50,7 @@ const app = () => {
       console.log("Correct!");
     } else {
       console.log(
-        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`
+        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`,
       );
       return;
     }
@@ -59,4 +59,3 @@ const app = () => {
 };
 
 app();
-
