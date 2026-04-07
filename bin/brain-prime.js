@@ -9,9 +9,8 @@ import {
 } from "../src/index.js";
 
 const range = 100;
-
 const isPrime = (number) => {
-let prime 
+let prime = 0
 
   if (number === 2 || number === 3) {
     return "yes";
@@ -20,16 +19,17 @@ let prime
 if (number < 2 || number % 3 === 0) {
     return "no";
   }
-  
+
   for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) {
-     prime = 'no';
-    } else {
-       prime ='yes'
-    }
-return prime
+     prime +=1
+    } 
+      
   }
+    return prime === 0 ?"yes" : "no"
+
 };
+isPrime(59)
 const app = () => {
   const userName = greetUser();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
