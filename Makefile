@@ -11,6 +11,9 @@ brain-gcd: #execute file brain-gcd.js
 	./bin/brain-gcd.js
 brain-progression: #execute file brain-progression.js
 	./bin/brain-progression.js
+brain-prime: #execute file brain-prime.js
+	./bin/brain-prime.js
+
 publish: 
 	npm publish --dry-run
 lint: # check linting and find problems
