@@ -11,7 +11,7 @@ import {
 const range = 100;
 
 const isPrime = (number) => {
-let prime =''
+let prime 
 
   if (number === 2 || number === 3) {
     return "yes";
