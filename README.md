@@ -5,3 +5,5 @@
 https://asciinema.org/a/JtxiNCYR7GKnjeB0
 #demonstrating brain-calculator game
 [![asciicast](https://asciinema.org/a/ZPiSS4RN0kuTcGgX.svg)](https://asciinema.org/a/ZPiSS4RN0kuTcGgX)
+#demonstrating brain-greatest-common-divider game
+[![asciicast](https://asciinema.org/a/hI0uvevhmxLEGbwc.svg)](https://asciinema.org/a/hI0uvevhmxLEGbwc)
