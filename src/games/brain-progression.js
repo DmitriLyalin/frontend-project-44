@@ -42,7 +42,8 @@ const brainProgression = () => {
     const arithmeticArray = getArithmeticSequence(minLength, maxLength);
     const index = getRandomNumber(0, arithmeticArray.length);
     const questionArray = transformArray(arithmeticArray, index);
-    askQuestion(questionArray);
+    const questionString = questionArray.join(" ")
+    askQuestion(questionString);
     const correctAnswer = getReplacedNumber(arithmeticArray, index).toString();
     const userAnswer = getUserAnswer();
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer);
