@@ -16,6 +16,7 @@ const gameRounds = 3;
 
 const brainEven = () => {
   const userName = greetUser();
+  console.log('Answer "yes" if the number is even, otherwise answer "no".')
   for (let round = 0; round < gameRounds; round += 1) {
     const questionNumber = getRandomNumber(range);
     askQuestion(questionNumber);
