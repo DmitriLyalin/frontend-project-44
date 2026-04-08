@@ -40,6 +40,7 @@ const composeExpression = () => {
 
 const brainCalculator = () => {
   const userName = greetUser();
+  console.log('What is the result of the expression?')
   for (let round = 0; round < gameRounds; round += 1) {
     const [questionExpression, questionNumber] = composeExpression();
     askQuestion(questionExpression);
