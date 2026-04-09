@@ -6,19 +6,22 @@ import {
   getUserAnswer,
   checkAnswer,
   getRandomNumber,
-} from '../index.js'
-
+  getResult,
+range
+} from '../utils.js'
+// Функция нахождения наибольшего общего делителя (НОД)
 const findGreatestCommonDivider = (numberOne, numberTwo) => {
-  while (numberTwo !== 0) {
-    let gcd = numberOne % numberTwo
-    numberOne = numberTwo
-    numberTwo = gcd
+ 	let firstNumber = numberOne
+	let secondNumber = numberTwo
+  while (secondNumber !== 0) {
+    let greatestCommonDivider = firstNumber % secondNumber
+    firstNumber = secondNumber
+    secondNumber = greatestCommonDivider
   }
-  return numberOne
+  return firstNumber
 }
-
+// Основная функция игры "НОД"
 const brainDivider = () => {
-  const range = 100
   const userName = greetUser()
   console.log('Find the greatest common divisor of given numbers.')
 
@@ -30,16 +33,10 @@ const brainDivider = () => {
     const correctAnswer = findGreatestCommonDivider(numberOne, numberTwo)
     const userAnswer = getUserAnswer()
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer.toString())
-    if (checkedAnswer) {
-      console.log('Correct!')
-    }
-    else {
-      console.log(
-        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`,
-      )
-      return
-    }
-  }
+    const result =  getResult(checkedAnswer,userName,userAnswer,correctAnswer)  // Получаем результат (true/false)
+    if (!result) {
+	return}
+ }
   console.log(`Congratulations, ${userName}!`)
 }
 export { brainDivider }
