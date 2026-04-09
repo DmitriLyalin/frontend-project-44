@@ -6,7 +6,8 @@ import {
   getUserAnswer,
   checkAnswer,
   getRandomNumber,
-} from '../index.js'
+  getResult,
+} from '../utils.js'
 
 const getRandomOperator = (operators) => {
   const operator = operators[Math.floor(Math.random() * operators.length)]
@@ -35,27 +36,24 @@ const composeExpression = () => {
       break
   }
   expression = `${numberOne} ${sign} ${numberTwo}`
-  return [expression, result]
+  return {expression, result}
 }
 
 const brainCalculator = () => {
   const userName = greetUser()
   console.log('What is the result of the expression?')
   for (let round = 0; round < gameRounds; round += 1) {
-    const [questionExpression, questionNumber] = composeExpression()
+    const { expression: questionExpression,
+            result: questionNumber} = composeExpression()
     askQuestion(questionExpression)
     const correctAnswer = questionNumber.toString()
     const userAnswer = getUserAnswer()
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    if (checkedAnswer) {
-      console.log('Correct!')
-    }
-    else {
-      console.log(
-        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`,
-      )
-      return
-    }
+    const result =  getResult(checkedAnswer,userName,userAnswer,correctAnswer) 
+    if (!result) {
+	return}
+ 
+
   }
   console.log(`Congratulations, ${userName}!`)
 }
