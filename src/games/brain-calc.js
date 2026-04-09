@@ -36,7 +36,7 @@ const composeExpression = () => {
       break
   }
   expression = `${numberOne} ${sign} ${numberTwo}`
-  return {expression, result}
+  return { expression, result }
 }
 
 const brainCalculator = () => {
@@ -44,16 +44,15 @@ const brainCalculator = () => {
   console.log('What is the result of the expression?')
   for (let round = 0; round < gameRounds; round += 1) {
     const { expression: questionExpression,
-            result: questionNumber} = composeExpression()
+      result: questionNumber } = composeExpression()
     askQuestion(questionExpression)
     const correctAnswer = questionNumber.toString()
     const userAnswer = getUserAnswer()
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    const result =  getResult(checkedAnswer,userName,userAnswer,correctAnswer) 
+    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer)
     if (!result) {
-	return}
- 
-
+      return
+    }
   }
   console.log(`Congratulations, ${userName}!`)
 }

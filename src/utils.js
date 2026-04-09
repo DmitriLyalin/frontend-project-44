@@ -18,20 +18,19 @@ const checkAnswer = (answer, correctAnswer) => {
   return answer === correctAnswer
 }
 // Функция генерации случайного числа в диапазоне от min до max
-const getRandomNumber = (max, min=0) => {
+const getRandomNumber = (max, min = 0) => {
   let randomNumber = Math.floor(Math.random() * (max + 1 - min) + min)
   return randomNumber
 }
 // Функция обработки результата ответа
-const  getResult = (result,userName,userAnswer,correctAnswer) => {
-  
+const getResult = (result, userName, userAnswer, correctAnswer) => {
   if (result) {
     console.log('Correct!')
     return true
   }
-  else{
+  else {
     console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`)
-    return  false
+    return false
   }
 }
 export { gameRounds, askQuestion, getUserAnswer, checkAnswer, getRandomNumber, getResult, range }

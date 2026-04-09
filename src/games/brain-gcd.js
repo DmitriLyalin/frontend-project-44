@@ -7,12 +7,12 @@ import {
   checkAnswer,
   getRandomNumber,
   getResult,
-range
+  range,
 } from '../utils.js'
 // Функция нахождения наибольшего общего делителя (НОД)
 const findGreatestCommonDivider = (numberOne, numberTwo) => {
- 	let firstNumber = numberOne
-	let secondNumber = numberTwo
+  let firstNumber = numberOne
+  let secondNumber = numberTwo
   while (secondNumber !== 0) {
     let greatestCommonDivider = firstNumber % secondNumber
     firstNumber = secondNumber
@@ -33,10 +33,11 @@ const brainDivider = () => {
     const correctAnswer = findGreatestCommonDivider(numberOne, numberTwo)
     const userAnswer = getUserAnswer()
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer.toString())
-    const result =  getResult(checkedAnswer,userName,userAnswer,correctAnswer)  // Получаем результат (true/false)
+    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer) // Получаем результат (true/false)
     if (!result) {
-	return}
- }
+      return
+    }
+  }
   console.log(`Congratulations, ${userName}!`)
 }
 export { brainDivider }

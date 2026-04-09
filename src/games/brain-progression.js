@@ -6,7 +6,7 @@ import {
   getUserAnswer,
   checkAnswer,
   getResult,
-getRandomNumber
+  getRandomNumber,
 } from '../utils.js'
 // Минимальная и максимальная длина прогрессии
 const minLength = 5
@@ -33,16 +33,17 @@ const brainProgression = () => {
   console.log('What number is missing in the progression?')
   for (let round = 0; round < gameRounds; round += 1) {
     const arithmeticArray = getArithmeticSequence(minLength, maxLength)
-const index = getRandomNumber(0, arithmeticArray.length-1)
-const correctAnswer = getReplacedNumber(arithmeticArray, index).toString()
-arithmeticArray[index] = '..'    
-const questionSequence = arithmeticArray.join(' ')    
+    const index = getRandomNumber(0, arithmeticArray.length - 1)
+    const correctAnswer = getReplacedNumber(arithmeticArray, index).toString()
+    arithmeticArray[index] = '..'
+    const questionSequence = arithmeticArray.join(' ')
     askQuestion(questionSequence)
     const userAnswer = getUserAnswer()
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    const result =  getResult(checkedAnswer,userName,userAnswer,correctAnswer)   // Получаем результат (true/false) 
+    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer) // Получаем результат (true/false)
     if (!result) {
-	return}
+      return
+    }
   }
   console.log(`Congratulations, ${userName}!`)
 }
