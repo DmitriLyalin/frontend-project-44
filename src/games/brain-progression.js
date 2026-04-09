@@ -5,57 +5,44 @@ import {
   askQuestion,
   getUserAnswer,
   checkAnswer,
-} from '../index.js'
-
+  getResult,
+getRandomNumber
+} from '../utils.js'
+// Минимальная и максимальная длина прогрессии
 const minLength = 5
 const maxLength = 10
-
-const getRandomNumber = (min, max) => {
-  let randomNumber = Math.floor(Math.random() * (max - min) + min)
-  return randomNumber
-}
-
+// Функция генерации арифметической прогрессии
 const getArithmeticSequence = (min, max) => {
   let arithmeticArray = []
   const arrayLength = getRandomNumber(min, max)
   const step = getRandomNumber(min, max)
   const startElement = getRandomNumber(min, max)
-  for (let i = 0; i <= arrayLength; i += 1) {
+  for (let i = 0; i < arrayLength; i += 1) {
     let currentElement = startElement + i * step
     arithmeticArray.push(currentElement)
   }
   return arithmeticArray
 }
-
+// Функция получения элемента по индексу
 const getReplacedNumber = (array, index) => {
   return array[index]
 }
-const transformArray = (array, index) => {
-  const newArray = [...array]
-  newArray[index] = '..'
-  return newArray
-}
+// Основная функция игры "Арифметическая прогрессия"
 const brainProgression = () => {
   const userName = greetUser()
   console.log('What number is missing in the progression?')
   for (let round = 0; round < gameRounds; round += 1) {
     const arithmeticArray = getArithmeticSequence(minLength, maxLength)
-    const index = getRandomNumber(0, arithmeticArray.length)
-    const questionArray = transformArray(arithmeticArray, index)
-    const questionString = questionArray.join(' ')
-    askQuestion(questionString)
-    const correctAnswer = getReplacedNumber(arithmeticArray, index).toString()
+const index = getRandomNumber(0, arithmeticArray.length-1)
+const correctAnswer = getReplacedNumber(arithmeticArray, index).toString()
+arithmeticArray[index] = '..'    
+const questionSequence = arithmeticArray.join(' ')    
+    askQuestion(questionSequence)
     const userAnswer = getUserAnswer()
     const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    if (checkedAnswer) {
-      console.log('Correct!')
-    }
-    else {
-      console.log(
-        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`,
-      )
-      return
-    }
+    const result =  getResult(checkedAnswer,userName,userAnswer,correctAnswer)   // Получаем результат (true/false) 
+    if (!result) {
+	return}
   }
   console.log(`Congratulations, ${userName}!`)
 }
