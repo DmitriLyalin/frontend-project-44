@@ -1,43 +1,30 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
 import {
-  gameRounds,
-  askQuestion,
-  getUserAnswer,
-  checkAnswer,
+  gameEngine,
   getRandomNumber,
-  getResult,
   range,
 } from '../utils.js'
 // Функция нахождения наибольшего общего делителя (НОД)
-const findGreatestCommonDivider = (numberOne, numberTwo) => {
-  let firstNumber = numberOne
-  let secondNumber = numberTwo
-  while (secondNumber !== 0) {
-    let greatestCommonDivider = firstNumber % secondNumber
-    firstNumber = secondNumber
-    secondNumber = greatestCommonDivider
+const findGreatestCommonDivider = () => {
+  const firstNumber = getRandomNumber(range)
+  const secondNumber = getRandomNumber(range)
+let numberOne = firstNumber
+let numberTwo = secondNumber
+  while (numberTwo !== 0) {
+    let remainder = numberOne % numberTwo
+    numberOne = numberTwo
+    numberTwo = remainder
   }
-  return firstNumber
+  const correctAnswer = numberOne.toString()
+ const questionSequence = `${firstNumber} ${secondNumber}`
+ return {
+    question: questionSequence,
+    correctAnswer,
+  }
 }
-// Основная функция игры "НОД"
-const brainDivider = () => {
-  const userName = greetUser()
-  console.log('Find the greatest common divisor of given numbers.')
 
-  for (let round = 0; round < gameRounds; round += 1) {
-    const numberOne = getRandomNumber(range)
-    const numberTwo = getRandomNumber(range)
-    const questionExpression = `${numberOne} ${numberTwo}`
-    askQuestion(questionExpression)
-    const correctAnswer = findGreatestCommonDivider(numberOne, numberTwo)
-    const userAnswer = getUserAnswer()
-    const checkedAnswer = checkAnswer(userAnswer, correctAnswer.toString())
-    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer) // Получаем результат (true/false)
-    if (!result) {
-      return
-    }
-  }
-  console.log(`Congratulations, ${userName}!`)
-}
-export { brainDivider }
+// Основная функция игры "НОД"
+const gameMessage ='Find the greatest common divisor of given numbers.'
+gameEngine(gameMessage, findGreatestCommonDivider)
+export {gameEngine}

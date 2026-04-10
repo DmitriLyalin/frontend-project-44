@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
 import {
-  gameRounds,
-  askQuestion,
-  getUserAnswer,
-  checkAnswer,
+  gameEngine,
   getRandomNumber,
-  getResult,
+range,
 } from '../utils.js'
 
 const getRandomOperator = (operators) => {
@@ -15,7 +12,6 @@ const getRandomOperator = (operators) => {
 }
 
 const operators = ['+', '-', '*']
-const range = 100
 
 const composeExpression = () => {
   const numberOne = getRandomNumber(range)
@@ -36,24 +32,11 @@ const composeExpression = () => {
       break
   }
   expression = `${numberOne} ${sign} ${numberTwo}`
-  return { expression, result }
+  return { question: expression, correctAnswer: result.toString() }
 }
 
-const brainCalculator = () => {
-  const userName = greetUser()
-  console.log('What is the result of the expression?')
-  for (let round = 0; round < gameRounds; round += 1) {
-    const { expression: questionExpression,
-      result: questionNumber } = composeExpression()
-    askQuestion(questionExpression)
-    const correctAnswer = questionNumber.toString()
-    const userAnswer = getUserAnswer()
-    const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer)
-    if (!result) {
-      return
-    }
-  }
-  console.log(`Congratulations, ${userName}!`)
-}
-export { brainCalculator }
+const gameMessage ='What is the result of the expression?'
+gameEngine(gameMessage, composeExpression)
+
+export {gameEngine}
+

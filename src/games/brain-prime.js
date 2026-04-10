@@ -1,42 +1,34 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
 import {
-  askQuestion,
-  getUserAnswer,
-  checkAnswer,
+  gameEngine,	
   getRandomNumber,
-  gameRounds,
-  getResult,
   range,
 } from '../utils.js'
 // Функция проверки: является ли число простым
-const isPrime = (number) => {
+const isPrime = (number)=> {
   if (number < 2) {
-    return 'no'
+    return false
   }
   for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) {
-      return 'no'
+      return  false
     }
   }
-  return 'yes'
+ return true
 }
-// Основная функция игры "Простое число"
-const brainPrime = () => {
-  const userName = greetUser()
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
-  for (let round = 0; round < gameRounds; round += 1) {
-    const questionNumber = getRandomNumber(range)
-    askQuestion(questionNumber)
-    const correctAnswer = isPrime(questionNumber)
-    const userAnswer = getUserAnswer()
-    const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer) // Получаем результат (true/false)
-    if (!result) {
-      return
-    }
+
+const isPrimeNumber = () => {
+const number = getRandomNumber(range)
+const result =  isPrime(number)
+  if (result) {
+    return { question: number, correctAnswer: 'yes' }
   }
 
-  console.log(`Congratulations, ${userName}!`)
+  return { question: number, correctAnswer: 'no' }
 }
-export { brainPrime }
+
+// Основная функция игры "Простое число"
+const gameMessage ='Answer "yes" if given number is prime. Otherwise answer "no".'
+gameEngine(gameMessage, isPrimeNumber)
+export {gameEngine}

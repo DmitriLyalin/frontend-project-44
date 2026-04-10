@@ -1,51 +1,28 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
-import {
-  gameRounds,
-  askQuestion,
-  getUserAnswer,
-  checkAnswer,
-  getResult,
+import {gameEngine,
   getRandomNumber,
 } from '../utils.js'
 // Минимальная и максимальная длина прогрессии
 const minLength = 5
 const maxLength = 10
 // Функция генерации арифметической прогрессии
-const getArithmeticSequence = (min, max) => {
+const getArithmeticSequence = () => {
   let arithmeticArray = []
-  const arrayLength = getRandomNumber(min, max)
-  const step = getRandomNumber(min, max)
-  const startElement = getRandomNumber(min, max)
-  for (let i = 0; i < arrayLength; i += 1) {
-    let currentElement = startElement + i * step
-    arithmeticArray.push(currentElement)
+  const arrayLength = getRandomNumber(minLength, maxLength)
+  const step = getRandomNumber(minLength, maxLength)
+  const startElement = getRandomNumber(minLength, maxLength)
+  for (let i = 0; i < arrayLength; i += 1) { 
+    arithmeticArray.push(startElement + i * step)
   }
-  return arithmeticArray
-}
-// Функция получения элемента по индексу
-const getReplacedNumber = (array, index) => {
-  return array[index]
-}
-// Основная функция игры "Арифметическая прогрессия"
-const brainProgression = () => {
-  const userName = greetUser()
-  console.log('What number is missing in the progression?')
-  for (let round = 0; round < gameRounds; round += 1) {
-    const arithmeticArray = getArithmeticSequence(minLength, maxLength)
-    const index = getRandomNumber(0, arithmeticArray.length - 1)
-    const correctAnswer = getReplacedNumber(arithmeticArray, index).toString()
-    arithmeticArray[index] = '..'
-    const questionSequence = arithmeticArray.join(' ')
-    askQuestion(questionSequence)
-    const userAnswer = getUserAnswer()
-    const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer) // Получаем результат (true/false)
-    if (!result) {
-      return
-    }
+const index = getRandomNumber(0, arithmeticArray.length - 1)
+const correctAnswer = arithmeticArray[index].toString()
+arithmeticArray[index] = '..'
+ const questionSequence = arithmeticArray.join(' ')
+ return {
+    question: questionSequence,
+    correctAnswer,
   }
-  console.log(`Congratulations, ${userName}!`)
 }
-
-export { brainProgression }
+const gameMessage ='What number is missing in the progression?'
+gameEngine(gameMessage, getArithmeticSequence)

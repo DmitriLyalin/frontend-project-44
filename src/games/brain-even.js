@@ -1,33 +1,25 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
-import { askQuestion, getUserAnswer, checkAnswer, getResult, gameRounds, range } from '../utils.js'
-// Генерация случайного числа
-const getRandomNumber = (range) => {
-  let randomNumber = Math.floor(Math.random() * range)
-  return randomNumber
-}
+import { getRandomNumber,gameEngine, range } from '../utils.js'
+
 // Проверка на чётность
 const isEven = (randomNumber) => {
-  return randomNumber % 2 === 0 ? 'yes' : 'no'
+  return randomNumber % 2 === 0 ? true : false
 }
-
-// Основная функция игры "Проверка на чётность"
-const brainEven = () => {
-  const userName = greetUser()
-  console.log('Answer "yes" if the number is even, otherwise answer "no".')
-  // Запускаем цикл игры на заданное количество раундов
-  for (let round = 0; round < gameRounds; round += 1) {
-    const questionNumber = getRandomNumber(range)
-    askQuestion(questionNumber)
-    const correctAnswer = isEven(questionNumber)
-    const userAnswer = getUserAnswer()
-    const checkedAnswer = checkAnswer(userAnswer, correctAnswer)
-    const result = getResult(checkedAnswer, userName, userAnswer, correctAnswer) // Получаем результат (true/false)
-    if (!result) {
-      return
-    }
+const isEvenNumber = () =>{
+const  number = getRandomNumber(range)
+const result = isEven(number)
+ if (result) {
+    return { question: number, correctAnswer: 'yes' }
   }
 
-  console.log(`Congratulations, ${userName}!`)
+  return { question: number, correctAnswer: 'no' }
 }
-export { brainEven }
+
+
+// Основная функция игры "Проверка на чётность"
+const gameMessage ='Answer "yes" if the number is even, otherwise answer "no".'
+gameEngine(gameMessage, isEvenNumber)
+
+export {gameEngine}
+
