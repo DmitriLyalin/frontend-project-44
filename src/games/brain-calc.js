@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-import { greetUser } from '../cli.js'
-import {gameEngine} from '../index.js'
+import { gameEngine } from '../index.js'
 import {
   getRandomNumber,
-range,
+  range,
 } from '../utils.js'
 
 const getRandomOperator = (operators) => {
@@ -35,8 +34,7 @@ const composeExpression = () => {
   return { question: expression, correctAnswer: result.toString() }
 }
 const runBrainCalculator = () => {
-const gameMessage ='What is the result of the expression?'
-gameEngine(gameMessage, composeExpression)
+  const gameMessage = 'What is the result of the expression?'
+  gameEngine(gameMessage, composeExpression)
 }
 export default runBrainCalculator
-

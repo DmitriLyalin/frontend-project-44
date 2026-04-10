@@ -5,4 +5,4 @@ const getRandomNumber = (max, min = 0) => {
 
 // Максимальное значение для случайных чисел
 const range = 100
-export {range, getRandomNumber }
+export { range, getRandomNumber }

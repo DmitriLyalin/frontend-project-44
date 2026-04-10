@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { greetUser } from '../cli.js'
-import {gameEngine} from '../index.js'
+import { gameEngine } from '../index.js'
 import {
   getRandomNumber,
 } from '../utils.js'
@@ -13,20 +12,20 @@ const getArithmeticSequence = () => {
   const arrayLength = getRandomNumber(minLength, maxLength)
   const step = getRandomNumber(minLength, maxLength)
   const startElement = getRandomNumber(minLength, maxLength)
-  for (let i = 0; i < arrayLength; i += 1) { 
+  for (let i = 0; i < arrayLength; i += 1) {
     arithmeticArray.push(startElement + i * step)
   }
-const index = getRandomNumber(0, arithmeticArray.length - 1)
-const correctAnswer = arithmeticArray[index].toString()
-arithmeticArray[index] = '..'
- const questionSequence = arithmeticArray.join(' ')
- return {
+  const index = getRandomNumber(0, arithmeticArray.length - 1)
+  const correctAnswer = arithmeticArray[index].toString()
+  arithmeticArray[index] = '..'
+  const questionSequence = arithmeticArray.join(' ')
+  return {
     question: questionSequence,
     correctAnswer,
   }
 }
 const runBrainProgression = () => {
-const gameMessage ='What number is missing in the progression?'
-gameEngine(gameMessage, getArithmeticSequence)
+  const gameMessage = 'What number is missing in the progression?'
+  gameEngine(gameMessage, getArithmeticSequence)
 }
 export default runBrainProgression

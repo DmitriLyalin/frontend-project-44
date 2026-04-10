@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync'
-import {greetUser} from './cli.js'
+import { greetUser } from './cli.js'
 // Функция реализации игр
 const gameEngine = (gameMessage, getGameData) => {
   const userName = greetUser()
@@ -7,16 +7,16 @@ const gameEngine = (gameMessage, getGameData) => {
   for (let round = 0; round < 3; round += 1) {
     const { question, correctAnswer } = getGameData()
     console.log('Question: ' + question)
-    const userAnswer =  readlineSync.question('Your answer: ')
-	if (userAnswer !==correctAnswer)  {
-   console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
+    const userAnswer = readlineSync.question('Your answer: ')
+    if (userAnswer !== correctAnswer) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
       console.log(`Let's try again, ${userName}!`)
       return
-}
-else {
-console.log ('Correct!')
-}
-}
+    }
+    else {
+      console.log ('Correct!')
+    }
+  }
   console.log(`Congratulations, ${userName}!`)
 }
-export {gameEngine}
+export { gameEngine }
