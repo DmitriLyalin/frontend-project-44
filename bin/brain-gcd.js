@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-import { brainDivider } from '../src/games/brain-gcd.js'
-brainDivider()
+import runBrainGreatestDivider from '../src/games/brain-gcd.js'
+runBrainGreatestDivider()

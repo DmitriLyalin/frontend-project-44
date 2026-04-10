@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
+import {gameEngine} from '../index.js'
 import {
-  gameEngine,
   getRandomNumber,
   range,
 } from '../utils.js'
@@ -25,6 +25,8 @@ let numberTwo = secondNumber
 }
 
 // Основная функция игры "НОД"
+const runBrainGreatestDivider = () => {
 const gameMessage ='Find the greatest common divisor of given numbers.'
 gameEngine(gameMessage, findGreatestCommonDivider)
-export {gameEngine}
+}
+export default runBrainGreatestDivider

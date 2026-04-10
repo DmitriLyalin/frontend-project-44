@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
+import {gameEngine} from '../index.js'
 import {
-  gameEngine,	
   getRandomNumber,
   range,
 } from '../utils.js'
@@ -29,6 +29,8 @@ const result =  isPrime(number)
 }
 
 // Основная функция игры "Простое число"
+const runBrainPrime = () => {
 const gameMessage ='Answer "yes" if given number is prime. Otherwise answer "no".'
 gameEngine(gameMessage, isPrimeNumber)
-export {gameEngine}
+}
+export default runBrainPrime

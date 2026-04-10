@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
-import { getRandomNumber,gameEngine, range } from '../utils.js'
+import {gameEngine} from '../index.js'
+import { getRandomNumber, range } from '../utils.js'
 
 // Проверка на чётность
 const isEven = (randomNumber) => {
@@ -18,8 +19,9 @@ const result = isEven(number)
 
 
 // Основная функция игры "Проверка на чётность"
+const runBrainEven = () => {
 const gameMessage ='Answer "yes" if the number is even, otherwise answer "no".'
 gameEngine(gameMessage, isEvenNumber)
-
-export {gameEngine}
+}
+export default runBrainEven
 

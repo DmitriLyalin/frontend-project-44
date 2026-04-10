@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { greetUser } from '../cli.js'
-import {gameEngine,
+import {gameEngine} from '../index.js'
+import {
   getRandomNumber,
 } from '../utils.js'
 // Минимальная и максимальная длина прогрессии
@@ -24,5 +25,8 @@ arithmeticArray[index] = '..'
     correctAnswer,
   }
 }
+const runBrainProgression = () => {
 const gameMessage ='What number is missing in the progression?'
 gameEngine(gameMessage, getArithmeticSequence)
+}
+export default runBrainProgression
